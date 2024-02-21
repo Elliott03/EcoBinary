@@ -27,14 +27,15 @@ func executeCommand(c *gin.Context) {
 	if err := c.BindJSON(&executor); err != nil {
 		return
 	}
-
-	//commandSlice := []string{"cd ..", "cd ..", "ls"}
+	for _, cmd := range executor.Commands {
+		println(cmd)
+	}
 	cmdString := ""
 	for _, command := range executor.Commands {
 		cmdString += command + " && "
 	}
 	cmdString = cmdString[:len(cmdString)-4]
-	println(cmdString)
+	//println(cmdString)
 	cmd := exec.Command("/bin/sh", "-c", cmdString)
 
 	output, err := cmd.CombinedOutput()
@@ -42,6 +43,6 @@ func executeCommand(c *gin.Context) {
 		println("error")
 		return
 	}
-	println(string(output))
+	//println(string(output))
 	c.IndentedJSON(http.StatusOK, string(output))
 }

@@ -41,8 +41,10 @@ import androidx.compose.ui.unit.dp
 import com.example.ecobinary_android.interfaces.RetrofitAPI
 import com.example.ecobinary_android.models.CommandModel
 import com.example.ecobinary_android.models.OutputModel
+import com.example.ecobinary_android.ui.theme.DarkOutputGray
 import com.example.ecobinary_android.ui.theme.DefaultGray
 import com.example.ecobinary_android.ui.theme.EcoBinaryAndroidTheme
+import com.example.ecobinary_android.ui.theme.OutputGray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -196,7 +198,7 @@ fun CommandInput(commandsOutput: String, onCommandsChange: (String) -> Unit) {
     }
     BoxWithConstraints(
         modifier = Modifier
-            .background(DefaultGray)
+            .background(DarkOutputGray)
             .fillMaxWidth()
     ) {
         Text(
@@ -204,7 +206,8 @@ fun CommandInput(commandsOutput: String, onCommandsChange: (String) -> Unit) {
             modifier = Modifier
                 .padding(10.dp, 0.dp)
                 .height(outputTextHeight)
-                .verticalScroll(scrollState)
+                .verticalScroll(scrollState),
+                color = Color.White
 
         )
     }

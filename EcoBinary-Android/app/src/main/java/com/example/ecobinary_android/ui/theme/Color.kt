@@ -11,3 +11,6 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 var DefaultGray = Color(0xFFDCE3E9)
+//var LightOutputGray = Color(0xFFC9CDD1)
+var DarkOutputGray = Color(0xFF3E484E)
+var OutputGray = Color(0xFF899296)
